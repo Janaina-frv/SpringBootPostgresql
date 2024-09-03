@@ -1,6 +1,6 @@
 package com.example.demo.approval;
 
-public enum processorException {
+public enum ProcessorException {
 	MENOR_IDADE{
 		@Override
 		public String getMessageError() {

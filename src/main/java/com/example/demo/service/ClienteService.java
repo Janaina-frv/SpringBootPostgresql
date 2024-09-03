@@ -9,9 +9,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.demo.approval.ApprovalManager;
-import com.example.demo.approval.ageProcessor;
-import com.example.demo.approval.patrimonioProcessor;
-import com.example.demo.approval.profissaoProcessor;
+import com.example.demo.approval.AgeProcessor;
+import com.example.demo.approval.AllProcessors;
+import com.example.demo.approval.PatrimonioProcessor;
+import com.example.demo.approval.ProfissaoProcessor;
 import com.example.demo.models.Cliente;
 import com.example.demo.repository.ClienteRepository;
 
@@ -34,9 +35,7 @@ public class ClienteService {
 	public Cliente save(Cliente cliente) {
 		
 		List<ApprovalManager> processors = new ArrayList<>();
-		processors.add(new ageProcessor());
-		processors.add(new patrimonioProcessor());
-		processors.add(new profissaoProcessor());
+		new AllProcessors(processors);
 
 		boolean result = true;
 		for (ApprovalManager processor : processors) {
