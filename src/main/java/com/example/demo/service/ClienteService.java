@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.example.demo.entity.Cliente;
+import com.example.demo.models.Cliente;
 import com.example.demo.repository.ClienteRepository;
+
 
 @Service
 public class ClienteService {
@@ -19,8 +21,9 @@ public class ClienteService {
 		return clienteRepository.findAll();	
 	}
 	
-	public Optional<Cliente> findByID(int id){
-		return clienteRepository.findById(id);
+	@Transactional(readOnly=true)
+	public Cliente findByID(int id){
+		return clienteRepository.findById(id).orElseThrow();
 	}
 	
 	public Cliente save(Cliente cliente) {
@@ -33,6 +36,12 @@ public class ClienteService {
 
 	public void delete(int id) {
 		clienteRepository.deleteById(id);;
+	}
+
+	public Cliente updatePatch(int clienteId, String nome) {
+		Cliente clienteRequest = findByID(clienteId);
+		clienteRequest.setNome(nome);
+		return clienteRepository.save(clienteRequest);
 	}
 
 }

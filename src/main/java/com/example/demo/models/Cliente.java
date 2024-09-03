@@ -1,13 +1,9 @@
-package com.example.demo.entity;
+package com.example.demo.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import jakarta.persistence.*;
 
-@Entity
 @Table(name="Cliente")
+@Entity
 public class Cliente {
 	
 	@Id
@@ -15,7 +11,7 @@ public class Cliente {
 	private int clienteId;
 	private String nome;
 	private String cpf;
-	private String dataDeNascimento;
+	private int idade;
 	private String sexo;
 	private String profissao;
 	private int salario;
@@ -37,12 +33,6 @@ public class Cliente {
 	}
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
-	}
-	public String getDataDeNascimento() {
-		return dataDeNascimento;
-	}
-	public void setDataDeNascimento(String dataDeNascimento) {
-		this.dataDeNascimento = dataDeNascimento;
 	}
 	public String getSexo() {
 		return sexo;
@@ -68,16 +58,25 @@ public class Cliente {
 	public void setPatrimonio(int patrimonio) {
 		this.patrimonio = patrimonio;
 	}
-	public Cliente(String nome, String cpf, String dataDeNascimento, String sexo, String profissao, int salario,
+	public Cliente(String nome, String cpf, int idade, String sexo, String profissao, int salario,
 			int patrimonio) {
 		super();
 		this.nome = nome;
 		this.cpf = cpf;
-		this.dataDeNascimento = dataDeNascimento;
+		this.idade = idade;
 		this.sexo = sexo;
 		this.profissao = profissao;
 		this.salario = salario;
 		this.patrimonio = patrimonio;
+	}
+	public Cliente() {
+		
+	}
+	public int getIdade() {
+		return idade;
+	}
+	public void setIdade(int idade) {
+		this.idade = idade;
 	}
 	
 	
