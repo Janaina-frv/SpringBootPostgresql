@@ -7,10 +7,9 @@ public class patrimonioProcessor implements ApprovalManager{
 	@Override
 	public boolean processCliente(Cliente cliente) {
 		if (cliente.getPatrimonio() >= 10000) {
-			//System.out.println("Patrimônio maior que 10.000!! Aproved!");
 			return true;
 		} else {
-			//System.out.println("Patrimônio não é maior que 10.000!! Not Aproved!");
+			System.out.println(processorException.PATRIMONIO_LIMITE.getMessageError());
 			return false;
 		}	
 	}

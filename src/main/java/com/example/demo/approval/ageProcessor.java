@@ -7,10 +7,8 @@ public class ageProcessor implements ApprovalManager{
 	@Override
 	public boolean processCliente(Cliente cliente) {
 		if (cliente.getIdade() >= 18) {
-			System.out.println("Cliente maior de idade!! Aproved!");
 			return true;
-		} else {
-			//throw new ApplicationException(processorException.MENOR_IDADE);		
+		} else {	
 			System.out.println(processorException.MENOR_IDADE.getMessageError());
 			return false;
 		}	

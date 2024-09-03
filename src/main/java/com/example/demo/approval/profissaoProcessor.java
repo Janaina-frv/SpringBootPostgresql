@@ -7,10 +7,9 @@ public class profissaoProcessor implements ApprovalManager{
 	@Override
 	public boolean processCliente(Cliente cliente) {
 		if (cliente.getProfissao() != null) {
-			//System.out.println("Cliente empregado!! Aproved!");
 			return true;
 		} else {
-			//System.out.println("Cliente desempregado!! Not Aproved!");
+			System.out.println(processorException.DESEMPREGADO.getMessageError());
 			return false;
 		}	
 	}

@@ -42,9 +42,7 @@ public class ClienteService {
 		for (ApprovalManager processor : processors) {
 		    result = result && processor.processCliente(cliente);
 		};
-		
 		if (result) {clienteRepository.save(cliente);} 
-		else {System.out.println("Cliente não pode ser cadastrado!");}
 		
 		return cliente;
 	}
