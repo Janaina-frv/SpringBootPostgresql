@@ -78,6 +78,18 @@ public class Cliente {
 	public void setIdade(int idade) {
 		this.idade = idade;
 	}
+	public Cliente(int clienteId, String nome, String cpf, int idade, String sexo, String profissao, int salario,
+			int patrimonio) {
+		super();
+		this.clienteId = clienteId;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.idade = idade;
+		this.sexo = sexo;
+		this.profissao = profissao;
+		this.salario = salario;
+		this.patrimonio = patrimonio;
+	}
 	
 	
 
